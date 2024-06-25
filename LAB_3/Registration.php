@@ -34,6 +34,10 @@
                             </tr>
                 </table>
             </fieldset>
+            <?php
+                $url = "http://localhost:81/LAB_3/Registration.html";
+                echo "<a href='$url'>Go Back</a>";
+            ?>
         </td>
                 <td>
                     <fieldset>
