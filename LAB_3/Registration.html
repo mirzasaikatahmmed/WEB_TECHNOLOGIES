@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration</title>
+    </head>
+    <body>
+        <h1>Registration</h1>
+        <form action="Registration.php" method="POST" novalidate>
+            <table>
+                <td>
+                    <fieldset>
+                        <legend>General Information</legend>
+                        <table>
+                            <tr>
+                                <label for="fname"><strong> First Name : </strong></label>
+                                <input type="text" id="fname" name="fname" value="Mirza Saikat"><br><br>
+                            </tr>
+                            <tr>
+                                <label for="lname"><strong>Last Name : </strong></label>
+                                <input type="text" id="lname" name="lname" value="Ahmmed"><br><br>
+                            </tr>
+                            <tr>
+                                <label for="gender"><strong>Gender : </strong></label>
+                                <input type="radio" id="male" name="gender" value="Male" checked>
+                                <label for="male">Male</label>
+                                <input type="radio" id="female" name="gender" value="Female">
+                                <label for="female">Female</label><br><br>
+                                
+                            </tr>
+                            <tr>
+                                <label for="faName"><strong>Father's Name : </strong></label>
+                                <input type="text" id="faName" name="faName" value="XZ">
+                                <input type="file"><br><br>
+                            </tr>
+                            <tr>
+                                <label for="moName"><strong>Mother's Name : </strong></label>
+                                <input type="text" id="moName" name="moName" value="YZ"><br><br>
+                            </tr>
+                            <tr>
+                                <label for="bGroup"><strong>Blood Group : </strong></label>
+                                <select id="bGroup" name="bGroup">
+                                    <option value="a+">A+</option>
+                                    <option value="b+">B+</option>
+                                    <option value="ab+">AB+</option>
+                                    <option value="o+">O+</option>
+                                    <option value="a-">A-</option>
+                                    <option value="b-">B-</option>
+                                    <option value="ab-">AB-</option>
+                                    <option value="o-">O-</option>
+                                </select><br><br>
+                            </tr>
+                            <tr>
+                                <label for="religion"><strong>Religion : </strong></label>
+                                <select id="religion" name="religion">
+                                    <option value="islam">Islam</option>
+                                    <option value="hindu">Hindu</option>
+                                </select>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </td>
+                <td>
+                    <fieldset>
+                        <legend>Contact Information</legend>
+                        <table>
+                            <tr>
+                                <label for="email"><strong>Email : </strong></label>
+                                <input type="text" id="email" name="email" value="contact@saikat.com.bd"><br><br>
+                            </tr>
+                            <tr>
+                                <label for="mNumber"><strong>Phone/Mobile : </strong></label>
+                                <input type="number" id="mNumber" name="mNumber" value="01571195489"><br><br>
+                            </tr>
+                            <tr>
+                                <label for="website"><strong>Website : </strong></label>
+                                <input type="url" id="website" name="website" value="https://saikat.com.bd/"><br><br>
+                            </tr>
+                            <tr>
+                                <td><label for="address"><strong>Address : </strong></label></td>
+                                <td>
+                                    <fieldset>
+                                        <legend>Present Address</legend>
+                                        <select id="country" name="country">
+                                            <option value="bd">Bangladesh</option>
+                                            <option value="usa">America</option>
+                                        </select>
+                                        <select id="city" name="address">
+                                            <option value="dhaka">Dhaka</option>
+                                            <option value="pabna">Pabna</option>
+                                        </select><br><br>
+                                        <textarea name="area">Kuratoli</textarea><br>
+                                        <input type="number" id="zip" name="zip" value="1229">
+                                    </fieldset>
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </td>
+                <td>
+                    <fieldset>
+                        <legend>Account Information</legend>
+                        <table>
+                            <tr>
+                                <label for="username"><strong>Username : </strong></label>
+                                <input type="text" id="username" name="username" value="saikat"><br><br>
+                            </tr>
+                            <tr>
+                                <label for="password"><strong>Password : </strong></label>
+                                <input type="password" id="password" name="password" value="123456"><br><br>
+                            </tr>
+                            <tr>
+                                <label for="cPassword"><strong>Confirm Password : </strong></label>
+                                <input type="password" id="cPassword" name="cPassword" value="123456"><br><br>
+                            </tr>
+                        </table>
+                    </fieldset><br>
+                    <input type="submit" value="Register">
+                </td>
+            </table>
+        </form>
+    </body>
+</html>
