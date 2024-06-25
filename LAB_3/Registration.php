@@ -10,27 +10,28 @@
                 <legend>General Information</legend>
                 <table>
                     <tr>
-                        <td><strong>First Name: </strong><?php echo $_POST['fname']; ?></td><br><br>
+                        <label><strong> First Name : </strong><?php echo $_POST['fname']; ?></label><br><br>
                     </tr>
                     <tr>
-                        <td><strong>Last Name: </strong><?php echo $_POST['lname']; ?></td><br><br>
+                        <label><strong>Last Name : </strong><?php echo $_POST['lname']; ?></label><br><br>
                     </tr>
-                    <tr>
-                        <td><strong>Gender: </strong><?php echo $_POST['gender']; ?></td><br><br>                               
-                    </tr>
-                    <tr>
-                        <td><strong>Father's Name: </strong><?php echo $_POST['faName']; ?></td>
-                        <td><input type="file"></td><br><br>
-                    </tr>
-                    <tr>
-                        <td><strong>Mother's Name: </strong><?php echo $_POST['moName']; ?></td><br><br>
-                    </tr>
-                    <tr>
-                        <td><strong>Blood Group: </strong><?php echo $_POST['bGroup']; ?></td><br><br>
-                    </tr>
-                   <tr>
-                       <td><strong>Religion: </strong><?php echo $_POST['religion']; ?></td><br><br>
-                    </tr>
+                            <tr>
+                                <label for="gender"><strong>Gender : </strong><?php echo $_POST['gender']; ?></label><br><br>
+                                
+                            </tr>
+                            <tr>
+                                <label for="faName"><strong>Father's Name : </strong><?php echo $_POST['faName'] . ' '; ?></label>
+                                <input type="file"><br><br>
+                            </tr>
+                            <tr>
+                                <label for="moName"><strong>Mother's Name : </strong><?php echo $_POST['moName']; ?></label><br><br>
+                            </tr>
+                            <tr>
+                                <label for="bGroup"><strong>Blood Group : </strong><?php echo $_POST['bGroup']; ?></label><br><br>
+                            </tr>
+                            <tr>
+                                <label for="religion"><strong>Religion : </strong><?php echo $_POST['religion']; ?></label>
+                            </tr>
                 </table>
             </fieldset>
         </td>
@@ -39,16 +40,16 @@
                         <legend>Contact Information</legend>
                         <table>
                             <tr>
-                                <td><strong>Email: </strong><?php echo $_POST['email']; ?></td><br><br>
+                                <label><strong>Email: </strong><?php echo $_POST['email']; ?></label><br><br>
                             </tr>
                             <tr>
-                                <td><strong>Phone/Mobile: </strong><?php echo $_POST['mNumber']; ?></td><br><br>
+                                <label><strong>Phone/Mobile: </strong><?php echo $_POST['mNumber']; ?></label><br><br>
                             </tr>
                             <tr>
-                                <td><strong>Website: </strong><?php echo $_POST['website']; ?></td><br><br>
+                                <label><strong>Website: </strong><?php echo $_POST['website']; ?></label><br><br>
                             </tr>
                             <tr>
-                                <td><strong>Address: </strong><?php echo $_POST['country'] . $_POST['zip']; ?></td><br><br>
+                                <label><strong>Address: </strong><?php echo $_POST['area'] . ', ' . $_POST['city'] . '-' . $_POST['zip'] . ', ' . $_POST['country']; ?></label><br><br>
                             </tr>
                         </table>
                     </fieldset>
@@ -58,13 +59,13 @@
                         <legend>Account Information</legend>
                         <table>
                         <tr>
-                            <td><strong>Username: </strong><?php echo $_POST['username']; ?></td><br><br>
+                            <label><strong>Username: </strong><?php echo $_POST['username']; ?></label><br><br>
                         </tr>
                         <tr>
-                            <td><strong>Password: </strong><?php echo $_POST['password']; ?></td><br><br>
+                            <label><strong>Password: </strong><?php echo $_POST['password']; ?></label><br><br>
                         </tr>
                         <tr>
-                            <td><strong>Confirm Password: </strong><?php echo $_POST['cPassword']; ?></td><br><br>
+                            <label><strong>Confirm Password: </strong><?php echo $_POST['cPassword']; ?></label><br><br>
                         </tr>
                         </table>
                     </fieldset><br>
