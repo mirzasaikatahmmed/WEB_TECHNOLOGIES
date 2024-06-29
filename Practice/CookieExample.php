@@ -1,5 +1,5 @@
 <?php
-    setcookie("user", "Alex Porter");
+    setcookie("user", "Alex Porter", time() + 30);
     echo "Hello World!";
 
     echo "<hr>";
