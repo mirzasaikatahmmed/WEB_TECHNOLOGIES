@@ -71,25 +71,29 @@
                         <input type="url" id="website" name="website" placeholder="Your Website URL" value="<?php echo isset($_SESSION['website']) ? $_SESSION['website'] : ""; ?>">
                         <?php echo isset($_SESSION['websiteErr']) ? $_SESSION['websiteErr'] : ""; ?>
                         <br><br>
-                        <label for="country"><strong>Country:</strong></label>
-                        <select id="country" name="country">
-                            <option value="Bangladesh">Bangladesh</option>
-                            <option value="India">India</option>
-                            <option value="Pakistan">Pakistan</option>
-                            <option value="Sri Lanka">Sri Lanka</option>
-                        </select><br><br>
-                        <label for="city"><strong>City:</strong></label>
-                        <select id="city" name="city">
-                            <option value="Dhaka">Dhaka</option>
-                            <option value="Chittagong">Chittagong</option>
-                            <option value="Rajshahi">Rajshahi</option>
-                            <option value="Khulna">Khulna</option>
-                        </select><br><br>
-                        <label for="pAddress"><strong>Present Address:</strong></label><br>
-                        <textarea id="pAddress" name="pAddress" rows="4" cols="50"><?php echo isset($_SESSION['pAddress']) ? $_SESSION['pAddress'] : ""; ?></textarea><br><br>
-                        <label for="zip"><strong>ZIP Code:</strong></label>
-                        <input type="number" id="zip" name="zip" placeholder="ZIP Code" value="<?php echo isset($_SESSION['zip']) ? $_SESSION['zip'] : ""; ?>">
-                        <?php echo isset($_SESSION['zipErr']) ? $_SESSION['zipErr'] : ""; ?>
+                        <label>Address: </label>
+                        <fieldset>
+                            <legend>Present Address</legend>
+                            <label for="country"><strong>Country:</strong></label>
+                            <select id="country" name="country">
+                                <option value="Bangladesh">Bangladesh</option>
+                                <option value="India">India</option>
+                                <option value="Pakistan">Pakistan</option>
+                                <option value="Sri Lanka">Sri Lanka</option>
+                            </select><br><br>
+                            <label for="city"><strong>City:</strong></label>
+                            <select id="city" name="city">
+                                <option value="Dhaka">Dhaka</option>
+                                <option value="Chittagong">Chittagong</option>
+                                <option value="Rajshahi">Rajshahi</option>
+                                <option value="Khulna">Khulna</option>
+                            </select><br><br>
+                            <label for="pAddress"><strong>Present Address:</strong></label><br>
+                            <textarea id="pAddress" name="pAddress" rows="4" cols="50"><?php echo isset($_SESSION['pAddress']) ? $_SESSION['pAddress'] : ""; ?></textarea><br><br>
+                            <label for="zip"><strong>ZIP Code:</strong></label>
+                            <input type="number" id="zip" name="zip" placeholder="ZIP Code" value="<?php echo isset($_SESSION['zip']) ? $_SESSION['zip'] : ""; ?>">
+                            <?php echo isset($_SESSION['zipErr']) ? $_SESSION['zipErr'] : ""; ?>
+                        </fieldset>
                     </fieldset>
                 </td>
                 <td>

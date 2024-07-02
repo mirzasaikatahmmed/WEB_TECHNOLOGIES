@@ -15,11 +15,11 @@
             <legend>Login</legend>
             <form action = "LoginAction.php" method="POST" novalidate>
                 <label for = "username">Username: </label>
-                <input type="test" id="username" name="username" value="<?php echo isset($_SESSION['uname']) ? $_SESSION['uname'] : "" ;?>">
+                <input type="text" id="username" name="username" value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : "" ;?>">
                 <?php echo isset($_SESSION['usernameErr']) ? $_SESSION['usernameErr'] : ""; ?>
                 <br><br>
                 <label for = "password">Password: </label>
-                <input type="password" id="password" name="password" value="<?php echo isset($_SESSION['pass']) ? $_SESSION['pass'] : "" ;?>">
+                <input type="password" id="password" name="password" value="<?php echo isset($_SESSION['password']) ? $_SESSION['password'] : "" ;?>">
                 <?php echo isset($_SESSION['passwordErr']) ? $_SESSION['passwordErr'] : ""; ?>
                 <br><br>
                 <label for="remember_me">Remember Me</label>

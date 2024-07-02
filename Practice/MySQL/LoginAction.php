@@ -13,8 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $password = sanitize($_POST['password']);
     $remember_me = isset($_POST['remember_me']) ? true : false;
 
-    $_SESSION['uname'] = "";
-    $_SESSION['pass'] = "";
+    $_SESSION['username'] = "";
+    $_SESSION['password'] = "";
     $_SESSION['usernameErr'] = "";
     $_SESSION['passwordErr'] = "";
     $_SESSION['msg3'] = "";
@@ -25,14 +25,14 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $flag = false;
         $_SESSION['usernameErr'] = "Please provide the username";
     } else {
-        $_SESSION['uname'] = $username;
+        $_SESSION['username'] = $username;
     }
 
     if (empty($password)) {
         $flag = false;
         $_SESSION['passwordErr'] = "Please provide the password";
     } else {
-        $_SESSION['pass'] = $password;
+        $_SESSION['password'] = $password;
     }
 
     if ($flag === true) {
