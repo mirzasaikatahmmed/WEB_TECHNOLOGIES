@@ -14,7 +14,6 @@ if (!isset($_SESSION['Username'])) {
     <title>Dashboard</title>
 </head>
 <body>
-
     <div class="container">
         <h1>Dashboard</h1>
 
@@ -31,6 +30,5 @@ if (!isset($_SESSION['Username'])) {
         <hr>
         <button class="logout-btn"><a href="Logout.php">Logout</a></button>
     </div>
-
 </body>
 </html>
