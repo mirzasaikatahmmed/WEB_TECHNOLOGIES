@@ -28,16 +28,12 @@ session_start();
             <?php echo isset($_SESSION['cPasswordErr']) ? $_SESSION['cPasswordErr'] : ''; ?>
             <br><br>
 
-            <input type="submit" value="Register">
+            <input type="submit" value="Register"><br><br>
+
+            <a href="Login.php">Login</a>
         </form>
         <?php echo isset($_SESSION['registrationErr']) ? $_SESSION['registrationErr'] : ''; ?>
+        <?php echo isset($_SESSION['registrationSuccess']) ? $_SESSION['registrationSuccess'] : ''; ?>
     </fieldset>
 </body>
 </html>
-
-<?php
-$_SESSION['emailErr'] = '';
-$_SESSION['passwordErr'] = '';
-$_SESSION['cPasswordErr'] = '';
-$_SESSION['registrationErr'] = '';
-?>

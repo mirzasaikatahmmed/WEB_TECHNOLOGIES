@@ -27,7 +27,9 @@
                 <input type="checkbox" id="remember_me" name="remember_me">
                 <br><br>
 
-                <input type="submit" value="Login">
+                <input type="submit" value="Login"><br><br>
+
+                <a href="Registration.php">Register</a>
             </form>
         </fieldset>
         <?php echo isset($_SESSION['msg3']) ? $_SESSION['msg3'] : ""; ?>

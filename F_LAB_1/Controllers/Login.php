@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!empty($validation_errors)) {
         $_SESSION['emailErr'] = $validation_errors['email'] ?? "";
         $_SESSION['passwordErr'] = $validation_errors['password'] ?? "";
-        header("Location: /../WEB_TECHNOLOGIES/F_LAB_1/View/Login.php");
+        header("Location: ../Views/Login.php");
         exit();
     } 
 
@@ -36,23 +36,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION['user'] = $user;
             $_SESSION['msg3'] = "Login successful!";
             if ($remember_me) {
+                date_default_timezone_set('Asia/Dhaka');
                 setcookie('email', $email, time() + (86400 * 30), "/");
                 setcookie('password', $password, time() + (86400 * 30), "/");
             }
+
+            else {
+                date_default_timezone_set('Asia/Dhaka');
+                setcookie('email', $email, time() + (5 * 60), '/');
+                setcookie('password', $password, time() + (5 * 60), '/');
+            }
+
             header("Location: ../Views/Dashboard.php");
             exit();
         } 
-        
+
         else {
             $_SESSION['msg3'] = "Invalid email or password or your account is inactive.";
-            header("Location: /../WEB_TECHNOLOGIES/F_LAB_1/View/Login.php");
+            header("Location: ../Views/Login.php");
             exit();
         }
     }
 } 
 
 else {
-    header("Location: /../WEB_TECHNOLOGIES/F_LAB_1/View/Login.php");
+    header("Location: ../Views/Login.php");
     exit();
 }
 
