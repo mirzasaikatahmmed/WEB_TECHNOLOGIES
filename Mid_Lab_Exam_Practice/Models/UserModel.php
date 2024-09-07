@@ -16,19 +16,6 @@
         return false;
     }
 
-    function getUserByEmail($email) {
-        $conn = getConnection();
-        $sql = "SELECT * FROM users WHERE email = ?";
-        $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "s", $email);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-        $user = mysqli_fetch_assoc($result);
-        mysqli_stmt_close($stmt);
-        mysqli_close($conn);
-        return $user;
-    }
-
     function addUser($name, $email, $password) {
         $conn = getConnection();
         $sql = "INSERT INTO users (name, email, password, create_date, status) VALUES (?, ?, ?, NOW(), 1)";
