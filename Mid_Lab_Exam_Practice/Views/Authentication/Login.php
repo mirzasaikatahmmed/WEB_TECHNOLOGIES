@@ -22,9 +22,13 @@
 		<span><?php echo empty($_SESSION['err2']) ? "" :  $_SESSION['err2'] ?></span>
 		<br><br>
 		<input type="submit" value="Login">
+		<br><br>
+		<?php echo empty($_SESSION['err3']) ? "" :  $_SESSION['err3'] ?>
+		<br><br>
+		<a href="ResetPassword.php">Forgot Password</a>
+		<br>
+		<a href="Registration.php">Register</a>
+
 	</form>
-
-	<?php echo empty($_SESSION['err3']) ? "" :  $_SESSION['err3'] ?>
-
 </body>
 </html>

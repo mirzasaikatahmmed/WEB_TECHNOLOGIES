@@ -1,0 +1,32 @@
+<?php
+    SESSION_START();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Password</title>
+</head>
+<body>
+    <form action="../../Controllers/ChangePasswordController.php" novalidate>
+        <!-- Email show but form is blocked -->
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" value="<?php echo empty($_SESSION['email']) ? "" :  $_SESSION['email'] ?>">
+        <span><?php echo empty($_SESSION['err1']) ? "" :  $_SESSION['err1'] ?></span>
+        <br><br>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" value="<?php echo empty($_SESSION['password']) ? "" :  $_SESSION['password'] ?>">
+        <span><?php echo empty($_SESSION['err2']) ? "" :  $_SESSION['err2'] ?></span>
+        <br><br>
+        <input type="submit" value="Change Password">
+        <br><br>
+        <?php echo empty($_SESSION['err3']) ? "" :  $_SESSION['err3'] ?>
+        <br><br>
+        <a href="Login.php">Login</a>
+        <br>
+        <a href="Registration.php">Register</a>
+    </form>
+</body>
+</html>
