@@ -39,4 +39,17 @@
         mysqli_close($conn);
         return $affected_rows;
     }
+
+    function resetPassword ($email) {
+        $conn = getConnection();
+        $sql = "UPDATE users SET password = ? WHERE email = ?";
+        $stmt = mysqli_prepare($conn, $sql);
+        $new_password = md5($email);
+        mysqli_stmt_bind_param($stmt, "ss", $new_password, $email);
+        mysqli_stmt_execute($stmt);
+        $affected_rows = mysqli_stmt_affected_rows($stmt);
+        mysqli_stmt_close($stmt);
+        mysqli_close($conn);
+        return $affected_rows;
+    }
 ?>
