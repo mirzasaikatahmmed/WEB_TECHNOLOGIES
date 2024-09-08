@@ -26,6 +26,7 @@ else if ($_SESSION['isLoggedIn'] === false) {
 	<hr>	
 
 	<a href="../../Controllers/LogoutController.php">Logout</a>
+	<a href="../Authentication/ChangePassword.php">Change Password</a>
 
 </body>
 </html>

@@ -16,9 +16,13 @@
         <br><br>
         <label for="password">Password</label>
         <input type="password" id="password" name="password" value="<?php echo empty($_SESSION['password']) ? "" :  $_SESSION['password'] ?>">
+		<span><?php echo empty($_SESSION['err1']) ? "" :  $_SESSION['err1'] ?></span>
         <br><br>
         <label for="confirmPassword">Confirm Password</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" value="<?php echo empty($_SESSION['confirmPassword']) ? "" :  $_SESSION['confirmPassword'] ?>">
+        <input type="password" id="confirmPassword" name="confirmPassword">
+		<span><?php echo empty($_SESSION['err2']) ? "" :  $_SESSION['err2'] ?></span>
+        <br><br>
+		<span><?php echo empty($_SESSION['err1']) ? "" :  $_SESSION['err1'] ?></span>
         <br><br>
         <button type="submit">Change Password</button>
     </form>
