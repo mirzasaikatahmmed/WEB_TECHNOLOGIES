@@ -59,4 +59,16 @@
         mysqli_close($conn);
         return $affected_rows === 1;
     }
+
+    function deleteUser ($user) {
+        $conn = getConnection();
+        $sql = "DELETE FROM users WHERE id = ?";
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "i", $user['id']);
+        mysqli_stmt_execute($stmt);
+        $affected_rows = mysqli_stmt_affected_rows($stmt);
+        mysqli_stmt_close($stmt);
+        mysqli_close($conn);
+        return $affected_rows === 1;
+    }
 ?>
