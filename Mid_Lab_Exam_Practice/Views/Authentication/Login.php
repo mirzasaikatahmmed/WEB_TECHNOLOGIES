@@ -30,5 +30,6 @@
 		<a href="Registration.php">Register</a>
 
 	</form>
+	
 </body>
 </html>
