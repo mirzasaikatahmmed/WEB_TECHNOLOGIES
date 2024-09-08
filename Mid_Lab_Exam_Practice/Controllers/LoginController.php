@@ -21,6 +21,7 @@ if (empty($email)) {
 else {
 	$_SESSION['email'] = $email;
 }
+
 if (empty($password)) {
 	$_SESSION['err2'] = "Please fill up the password properly";
 	$isValid = false;

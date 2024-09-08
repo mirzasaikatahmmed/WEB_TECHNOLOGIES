@@ -1,5 +1,5 @@
 <?PHP
-    session_start();
+    SESSION_START();
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<form method="post" action="../../Controllers/LoginController.php" novalidate>
+	<form method="POST" action="../../Controllers/LoginController.php" novalidate>
 		
 		<label for="email">Email</label>
 		<input type="email" id="email" name="email" value="<?php echo empty($_SESSION['email']) ? "" :  $_SESSION['email'] ?>">
@@ -30,6 +30,6 @@
 		<a href="Registration.php">Register</a>
 
 	</form>
-	
+
 </body>
 </html>
