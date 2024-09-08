@@ -10,23 +10,18 @@
     <title>Change Password</title>
 </head>
 <body>
-    <form action="../../Controllers/ChangePasswordController.php" novalidate>
-        <!-- Email show but form is blocked -->
+    <form method="POST" action="../../Controllers/ChangePasswordController.php" novalidate>
+        <!-- Change Password page email show. but email filled only readable not writeable -->
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" value="<?php echo empty($_SESSION['email']) ? "" :  $_SESSION['email'] ?>">
-        <span><?php echo empty($_SESSION['err1']) ? "" :  $_SESSION['err1'] ?></span>
+        <input type="email" id="email" name="email" value="<?php echo empty($_SESSION['email']) ? "" :  $_SESSION['email'] ?>" readonly>
         <br><br>
         <label for="password">Password</label>
         <input type="password" id="password" name="password" value="<?php echo empty($_SESSION['password']) ? "" :  $_SESSION['password'] ?>">
-        <span><?php echo empty($_SESSION['err2']) ? "" :  $_SESSION['err2'] ?></span>
         <br><br>
-        <input type="submit" value="Change Password">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" value="<?php echo empty($_SESSION['confirmPassword']) ? "" :  $_SESSION['confirmPassword'] ?>">
         <br><br>
-        <?php echo empty($_SESSION['err3']) ? "" :  $_SESSION['err3'] ?>
-        <br><br>
-        <a href="Login.php">Login</a>
-        <br>
-        <a href="Registration.php">Register</a>
+        <button type="submit">Change Password</button>
     </form>
 </body>
 </html>

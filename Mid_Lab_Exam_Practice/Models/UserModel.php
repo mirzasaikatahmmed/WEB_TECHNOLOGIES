@@ -1,5 +1,5 @@
 <?PHP 
-    SESSION_START();
+    
     include '../Models/Database.php';
 
 
@@ -18,15 +18,22 @@
 
     function getUserByEmail($email) {
         $conn = getConnection();
+        if ($conn === false) {
+            return null;
+        }
         $sql = "SELECT * FROM users WHERE email = ?";
         $stmt = mysqli_prepare($conn, $sql);
+        if ($stmt === false) {
+            mysqli_close($conn);
+            return null;
+        }
         mysqli_stmt_bind_param($stmt, "s", $email);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
         $user = mysqli_fetch_assoc($result);
         mysqli_stmt_close($stmt);
         mysqli_close($conn);
-        return $user;
+        return $user ? $user : null;
     }
 
     function addUser($name, $email, $password) {
@@ -41,28 +48,15 @@
         return $insert_id;
     }
 
-    function changePassword ($email, $password) {
+    function updateUser ($user) {
         $conn = getConnection();
-        $sql = "UPDATE users SET password = ? WHERE email = ?";
+        $sql = "UPDATE users SET password = ? WHERE id = ?";
         $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "ss", $password, $email);
+        mysqli_stmt_bind_param($stmt, "si", $user['password'], $user['id']);
         mysqli_stmt_execute($stmt);
         $affected_rows = mysqli_stmt_affected_rows($stmt);
         mysqli_stmt_close($stmt);
         mysqli_close($conn);
-        return $affected_rows;
-    }
-
-    function resetPassword ($email) {
-        $conn = getConnection();
-        $sql = "UPDATE users SET password = ? WHERE email = ?";
-        $stmt = mysqli_prepare($conn, $sql);
-        $new_password = md5('123456');
-        mysqli_stmt_bind_param($stmt, "ss", $new_password, $email);
-        mysqli_stmt_execute($stmt);
-        $affected_rows = mysqli_stmt_affected_rows($stmt);
-        mysqli_stmt_close($stmt);
-        mysqli_close($conn);
-        return $affected_rows;
+        return $affected_rows === 1;
     }
 ?>

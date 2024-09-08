@@ -10,7 +10,7 @@
     <title>Reset Password</title>
 </head>
 <body>
-    <form action="../../Controllers/ResetPasswordController.php" novalidate>
+    <form method="POST" action="../../Controllers/ResetPasswordController.php" novalidate>
         <label for="email">Email</label>
         <input type="email" id="email" name="email" value="<?php echo empty($_SESSION['email']) ? "" :  $_SESSION['email'] ?>">
         <span><?php echo empty($_SESSION['err1']) ? "" :  $_SESSION['err1'] ?></span>
