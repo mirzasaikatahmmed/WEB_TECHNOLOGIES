@@ -11,7 +11,6 @@
 </head>
 <body>
     <form method="POST" action="../../Controllers/ChangePasswordController.php" novalidate>
-        <!-- Change Password page email show. but email filled only readable not writeable -->
         <label for="email">Email</label>
         <input type="email" id="email" name="email" value="<?php echo empty($_SESSION['email']) ? "" :  $_SESSION['email'] ?>" readonly>
         <br><br>
