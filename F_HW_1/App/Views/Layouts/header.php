@@ -14,7 +14,7 @@
 <body>
 <header>
     <div class="logo">
-        <img src="#" alt="Image Store Logo">
+        <h1>Image Drive</h1>
     </div>
     <div class="nav-links">
         <?php if ($isLoggedIn): ?>

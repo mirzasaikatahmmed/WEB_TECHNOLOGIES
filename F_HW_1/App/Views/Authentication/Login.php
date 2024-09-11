@@ -11,7 +11,13 @@
         <input type="password" name="password" id="password" value="<?php echo empty($_SESSION['password']) ? "" : $_SESSION['password']; ?>">
         <span class="error"><?php echo empty($_SESSION['err2']) ? "" :  $_SESSION['err2'] ?></span>
 
-        <p><a href="./ForgotPassword.php">Forgot Password?</a></p>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <label for="remember_me">
+            <input type="checkbox" name="remember_me" id="remember_me">
+            Remember Me
+            </label>
+            <p><a href="./ForgotPassword.php">Forgot Password?</a></p>
+        </div>
 
         <button type="submit">Login</button>
 

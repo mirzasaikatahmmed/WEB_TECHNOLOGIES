@@ -18,7 +18,7 @@
         <label for="password">Password: </label>
         <input type="password" name="password" id="password" value="<?php echo empty($_SESSION['password']) ? "" : $_SESSION['password']; ?>" placeholder="Enter your password">
         <span class="error"><?php echo empty($_SESSION['passwordErr']) ? "" : $_SESSION['passwordErr']; ?></span>
-        
+        <br>
         <button id="submit">Register</button>
 
         <?php if (isset($error)): ?>

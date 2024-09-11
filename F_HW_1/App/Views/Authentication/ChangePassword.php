@@ -4,7 +4,6 @@
     <form method="POST" action="../../Controllers/ChangePasswordController.php" novalidate>
         <label for="email">Email</label>
         <input type="email" id="email" name="email" value="<?php echo empty($_SESSION['email']) ? "" :  $_SESSION['email'] ?>" readonly>
-        <br><br>
 
         <label for="password">Password</label>
         <input type="password" id="password" name="password" value="<?php echo empty($_SESSION['password']) ? "" :  $_SESSION['password'] ?>">
@@ -14,7 +13,6 @@
         <label for="confirmPassword">Confirm Password</label>
         <input type="password" id="confirmPassword" name="confirmPassword">
 		<span><?php echo empty($_SESSION['err2']) ? "" :  $_SESSION['err2'] ?></span>
-        <br><br>
 
 		<span><?php echo empty($_SESSION['err3']) ? "" :  $_SESSION['err3'] ?></span>
         <br><br>

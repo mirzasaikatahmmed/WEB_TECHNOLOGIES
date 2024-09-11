@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (in_array($fileActualExt, $allowed)) {
             if ($fileError === 0) {
-                if ($fileSize < 1000000) {
+                if ($fileSize < 10000000) {
                     $uniqueID = uniqid('', true);
                     $fileNameNew = "{$uniqueID}.{$fileActualExt}";
                     $fileDestination = "../../Storage/Images/{$fileNameNew}";
