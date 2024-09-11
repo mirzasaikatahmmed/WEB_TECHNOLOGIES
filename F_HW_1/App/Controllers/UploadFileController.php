@@ -31,24 +31,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         $_SESSION['message'] = 'File uploaded successfully';
                         header('Location: ../Views/Users/UploadFiles.php');
+                        exit();
                     } else {
                         $_SESSION['message'] = 'There was an error moving your file';
                         header('Location: ../Views/Users/UploadFiles.php');
+                        exit();
                     }
                 } else {
                     $_SESSION['message'] = 'File is too big';
                     header('Location: ../Views/Users/UploadFiles.php');
+                    exit();
                 }
             } else {
                 $_SESSION['message'] = 'There was an error uploading your file';
                 header('Location: ../Views/Users/UploadFiles.php');
+                exit();
             }
         } else {
             $_SESSION['message'] = 'You cannot upload files of this type';
             header('Location: ../Views/Users/UploadFiles.php');
+            exit();
         }
     }
 } else {
     $_SESSION['message'] = 'Upload Failed';
     header('Location: ../Views/Users/UploadFiles.php');
+    exit();
 }
