@@ -1,5 +1,6 @@
-<?PHP 
-    SESSION_START();
+<?php 
+    session_start();
+    $isLoggedIn = isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'] === true;
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +17,13 @@
         <img src="#" alt="Image Store Logo">
     </div>
     <div class="nav-links">
-        <a href="../Authentication/Login.php">Login</a>
-        <a href="../Authentication/Registration.php">Registration</a>
+        <?php if ($isLoggedIn): ?>
+            <a href="../Users/Dashboard.php">Dashboard</a>
+            <a href="../Users/UploadFiles.php">Upload Image</a>
+            <a href="../../Controllers/LogoutController.php">Logout</a>
+        <?php else: ?>
+            <a href="../Authentication/Login.php">Login</a>
+            <a href="../Authentication/Registration.php">Registration</a>
+        <?php endif; ?>
     </div>
 </header>

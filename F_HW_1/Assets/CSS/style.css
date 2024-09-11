@@ -136,3 +136,152 @@ footer {
 .registration-form button:hover {
     background-color: #2C3E50;
 }
+
+.ForgotPassword-Form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F9F9F9;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ForgotPassword-Form h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.ForgotPassword-Form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.ForgotPassword-Form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #E0E0E0;
+    border-radius: 3px;
+}
+
+.ForgotPassword-Form .error {
+    color: #E74C3C;
+    font-size: 0.9rem;
+}
+
+.ForgotPassword-Form button {
+    background-color: #35495E;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.ForgotPassword-Form button:hover {
+    background-color: #2C3E50;
+}
+
+.ChangePassword-Form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F9F9F9;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ChangePassword-Form h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.ChangePassword-Form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.ChangePassword-Form input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #E0E0E0;
+    border-radius: 3px;
+}
+
+.ChangePassword-Form .error {
+    color: #E74C3C;
+    font-size: 0.9rem;
+}
+
+.ChangePassword-Form button {
+    background-color: #35495E;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.ChangePassword-Form button:hover {
+    background-color: #2C3E50;
+}
+
+/* Your existing styles (if any) */
+
+/* File upload form styles */
+.UploadFiles-Form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F9F9F9;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.UploadFiles-Form h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.UploadFiles-Form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.UploadFiles-Form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #E0E0E0;
+    border-radius: 3px;
+}
+
+.UploadFiles-Form button {
+    background-color: #35495E;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.UploadFiles-Form button:hover {
+    background-color: #2C3E50;
+}
+
+.UploadFiles-Form .error {
+    color: #E74C3C;
+    font-size: 0.9rem;
+}
