@@ -1,15 +1,17 @@
 <?php
 session_start();
-require_once '../Models/UserModel.php';
+require_once '../Config/Database.php';
+$conn = getConnection();
+$email = $_SESSION['email']; // Assuming email is stored in session
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['submit'])) {
+    if (isset($_FILES['file']) && $_FILES['file']['error'] !== UPLOAD_ERR_NO_FILE) {
         $file = $_FILES['file'];
-        $fileName = $_FILES['file']['name'];
-        $fileTmpName = $_FILES['file']['tmp_name'];
-        $fileSize = $_FILES['file']['size'];
-        $fileError = $_FILES['file']['error'];
-        $fileType = $_FILES['file']['type'];
+        $fileName = $file['name'];
+        $fileTmpName = $file['tmp_name'];
+        $fileSize = $file['size'];
+        $fileError = $file['error'];
+        $fileType = $file['type'];
 
         $fileExt = explode('.', $fileName);
         $fileActualExt = strtolower(end($fileExt));
@@ -24,12 +26,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $fileDestination = "../../Storage/Images/{$fileNameNew}";
 
                     if (move_uploaded_file($fileTmpName, $fileDestination)) {
-                        $email = $_SESSION['email'];
-                        $studentID = getStudentIDByEmail($email);
+                        $userID = getIDByEmail($conn, $email);
 
-                        insertFileData($studentID, $fileNameNew);
+                        if ($userID !== null) {
+                            if (insertFileData($conn, $fileNameNew, $userID)) {
+                                $_SESSION['message'] = 'File uploaded successfully';
+                            } else {
+                                $_SESSION['message'] = 'Failed to insert file data';
+                            }
+                        } else {
+                            $_SESSION['message'] = 'Invalid userID';
+                        }
 
-                        $_SESSION['message'] = 'File uploaded successfully';
                         header('Location: ../Views/Users/UploadFiles.php');
                         exit();
                     } else {
@@ -52,9 +60,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Location: ../Views/Users/UploadFiles.php');
             exit();
         }
+    } else {
+        $_SESSION['message'] = 'No file was uploaded';
+        header('Location: ../Views/Users/UploadFiles.php');
+        exit();
     }
 } else {
     $_SESSION['message'] = 'Upload Failed';
     header('Location: ../Views/Users/UploadFiles.php');
     exit();
+}
+
+function getIDByEmail($conn, $email) {
+    $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        return $row['id'];
+    } else {
+        return null;
+    }
+}
+
+function insertFileData($conn, $fileNameNew, $userID) {
+    $stmtCheck = $conn->prepare("SELECT id FROM users WHERE id = ?");
+    $stmtCheck->bind_param("i", $userID);
+    $stmtCheck->execute();
+    $resultCheck = $stmtCheck->get_result();
+
+    if ($resultCheck->num_rows > 0) {
+        $stmt = $conn->prepare("INSERT INTO files (image_file_name, userID) VALUES (?, ?)");
+        $stmt->bind_param("si", $fileNameNew, $userID);
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
 }

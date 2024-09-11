@@ -1,6 +1,6 @@
 <?php
 
-require_once '../Config/Database.php';
+require_once __DIR__ . '/../Config/Database.php';
 
 function matchCredentials ($email, $password) {
     $conn = getConnection();
@@ -59,32 +59,23 @@ function updateUser ($user) {
     return $affected_rows === 1;
 }
 
-function getStudentIDByEmail($email) {
-    $conn = getConnection();
-    $stmt = $conn->prepare("SELECT student_id FROM users WHERE email = ?");
+function getIDByEmail($conn, $email) {
+    $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
-    $row = $result->fetch_assoc();
-    $student_id = $row['student_id'];
-    $stmt->close();
-    $conn->close();
-    return $student_id;
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        return $row['id'];
+    } else {
+        return null;
+    }
 }
 
-function insertFileData($studentID, $fileNameNew) {
+function getFilesByID($ID) {
     $conn = getConnection();
-    $stmt = $conn->prepare("INSERT INTO files (student_id, image_file_name, upload_time) VALUES (?, ?, NOW())");
-    $stmt->bind_param("is", $studentID, $fileNameNew);
-    $stmt->execute();
-    $stmt->close();
-    $conn->close();
-}
-
-function getFilesByStudentID($studentID) {
-    $conn = getConnection();
-    $stmt = $conn->prepare("SELECT image_file_name FROM files WHERE student_id = ?");
-    $stmt->bind_param("i", $studentID);
+    $stmt = $conn->prepare("SELECT image_file_name FROM files WHERE userID = ?");
+    $stmt->bind_param("i", $ID);
     $stmt->execute();
     $result = $stmt->get_result();
     $files = [];
