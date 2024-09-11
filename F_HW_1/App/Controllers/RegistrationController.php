@@ -1,7 +1,6 @@
 <?PHP 
     SESSION_START();
     require_once '../Models/UserModel.php';
-    require_once '../Models/ValidationCheckModel.php';
 
     function sanitize($data) {
         $data = trim($data);

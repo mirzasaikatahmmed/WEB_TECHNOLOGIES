@@ -6,12 +6,12 @@
         <label for="email">Email:</label>
         <input type="email" name="email" id="email" value="<?php echo empty($_SESSION['email']) ? "" : $_SESSION['email']; ?>">
         <span class="error"><?php echo empty($_SESSION['err1']) ? "" :  $_SESSION['err1'] ?></span>
-        <br><br>
 
         <label for="password">Password:</label>
         <input type="password" name="password" id="password" value="<?php echo empty($_SESSION['password']) ? "" : $_SESSION['password']; ?>">
         <span class="error"><?php echo empty($_SESSION['err2']) ? "" :  $_SESSION['err2'] ?></span>
-        <br><br>
+
+        <p><a href="./ForgotPassword.php">Forgot Password?</a></p>
 
         <button type="submit">Login</button>
 

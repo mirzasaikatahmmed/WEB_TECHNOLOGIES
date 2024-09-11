@@ -9,12 +9,6 @@
         return $data;
     }
 
-    // Check if the user is already logged in
-    if (isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'] === true) {
-        header("Location: ../Views/Users/Dashboard.php");
-        exit();
-    }
-
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $error = 'Login request is invalid';
         header("Location: ../Views/Authentication/Login.php");

@@ -2,7 +2,7 @@
 session_start();
 require_once '../Config/Database.php';
 $conn = getConnection();
-$email = $_SESSION['email']; // Assuming email is stored in session
+$email = $_SESSION['email'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['file']) && $_FILES['file']['error'] !== UPLOAD_ERR_NO_FILE) {
@@ -102,3 +102,5 @@ function insertFileData($conn, $fileNameNew, $userID) {
         return false;
     }
 }
+
+?>
