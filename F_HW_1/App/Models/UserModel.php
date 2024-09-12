@@ -62,7 +62,7 @@ function addUser($name, $student_id, $email, $password) {
 
 function updateUser ($user) {
     $conn = getConnection();
-    $sql = "UPDATE users SET password = ? WHERE id = ?";
+    $sql = "UPDATE users SET password = ?, updated_at = NOW() WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "si", $user['password'], $user['id']);
     mysqli_stmt_execute($stmt);

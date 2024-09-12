@@ -1,0 +1,84 @@
+body, h1, ul {
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #35495E;
+    color: #FFFFFF;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #F5A623;
+    font-weight: bold;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #E74C3C;
+}
+
+footer {
+    background-color: #35495E;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px;
+    font-size: 1rem;
+    margin-top: 20px;
+}
+
+.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F9F9F9;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.login-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #E0E0E0;
+    border-radius: 3px;
+}
+
+.login-form .error {
+    color: #E74C3C;
+    font-size: 0.9rem;
+}
+
+.login-form button {
+    background-color: #35495E;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: #2C3E50;
+}
