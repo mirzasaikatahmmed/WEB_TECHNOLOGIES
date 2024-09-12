@@ -20,7 +20,13 @@
         <?php if ($isLoggedIn): ?>
             <a href="../Users/Dashboard.php">Dashboard</a>
             <a href="../Users/UploadFiles.php">Upload Image</a>
-            <a href="../../Controllers/LogoutController.php">Logout</a>
+            <div class="dropdown">
+                <button class="dropbtn">Account</button>
+                <div class="dropdown-content">
+                    <a href="../Authentication/ChangePassword.php">Change Password</a>
+                    <a href="../../Controllers/LogoutController.php">Logout</a>
+                </div>
+            </div>
         <?php else: ?>
             <a href="../Authentication/Login.php">Login</a>
             <a href="../Authentication/Registration.php">Registration</a>

@@ -8,7 +8,6 @@
         <label for="password">Password</label>
         <input type="password" id="password" name="password" value="<?php echo empty($_SESSION['password']) ? "" :  $_SESSION['password'] ?>">
 		<span><?php echo empty($_SESSION['err1']) ? "" :  $_SESSION['err1'] ?></span>
-        <br><br>
 
         <label for="confirmPassword">Confirm Password</label>
         <input type="password" id="confirmPassword" name="confirmPassword">
