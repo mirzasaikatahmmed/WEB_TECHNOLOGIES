@@ -72,13 +72,13 @@
         
         if (empty($student_id)) {
             $errors['student_id'] = "Student ID is required.";
-        } 
+        } elseif (!preg_match('/^(00|01|02|03|04|05|06|07|08|09|10|11|12|14|15|16|17|18|19|20|21|22|23|24)-\d{5}-[1-3]$/', $student_id)) {
+            $errors['student_id'] = "Invalid student ID format. It should be in the format xx-xxxxx-x.";
+        }
 
         if (empty($email)) {
             $errors['email'] = "Email is required.";
-        } 
-        
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $errors['email'] = "Invalid email format.";
         }
 

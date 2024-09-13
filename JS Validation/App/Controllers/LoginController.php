@@ -18,45 +18,23 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = sanitize($_POST['email']);
         $password = sanitize($_POST['password']);
-        $isValid = true;
-        $_SESSION['err1'] = "";
-        $_SESSION['err2'] = "";
-        $_SESSION['email'] = "";
-        $_SESSION['password'] = "";
+        $_SESSION['email'] = $email;
+        $_SESSION['password'] = $password;
         $_SESSION['err3'] = "";
         $_SESSION['isLoggedIn'] = false;
 
-        if (empty($email)) {
-            $_SESSION['err1'] = "Please fill up the email properly";
-            $isValid = false;
-        } else {
-            $_SESSION['email'] = $email;
-        }
+        $isUser = matchCredentials($email, $password);
+        if ($isUser) {
+            $_SESSION['isLoggedIn'] = true;
 
-        if (empty($password)) {
-            $_SESSION['err2'] = "Please fill up the password properly";
-            $isValid = false;
+            date_default_timezone_set('Asia/Dhaka');
+            $cookieDuration = isset($_POST['remember_me']) ? (86400 * 7) : (86400 * 1);
+            setcookie('email', $email, time() + $cookieDuration, "/");
+            
+            header("Location: ../Views/Users/Dashboard.php");
+            exit();
         } else {
-            $_SESSION['password'] = $password;
-        }
-
-        if ($isValid === true) {
-            $isUser = matchCredentials($email, $password);
-            if ($isUser) {
-                $_SESSION['isLoggedIn'] = true;
-
-                date_default_timezone_set('Asia/Dhaka');
-                $cookieDuration = isset($_POST['remember_me']) ? (86400 * 7) : (86400 * 1);
-                setcookie('email', $email, time() + $cookieDuration, "/");
-                
-                header("Location: ../Views/Users/Dashboard.php");
-                exit();
-            } else {
-                $_SESSION['err3'] = "Login Failed ... !";
-                header("Location: ../Views/Authentication/Login.php");
-                exit();
-            }
-        } else {
+            $_SESSION['err3'] = "Login Failed ... !";
             header("Location: ../Views/Authentication/Login.php");
             exit();
         }

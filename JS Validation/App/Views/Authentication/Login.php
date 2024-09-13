@@ -2,14 +2,14 @@
 
 <div class="login-form">
     <h2>Login</h2>
-    <form id="loginForm" method="POST" action="../../Controllers/LoginController.php" novalidate>
+    <form method="POST" action="../../Controllers/LoginController.php" onsubmit="return isValid(this);" novalidate>
         <label for="email">Email:</label>
         <input type="email" name="email" id="email" value="<?php echo empty($_SESSION['email']) ? "" : $_SESSION['email']; ?>">
-        <span class="error" id="emailError"><?php echo empty($_SESSION['err1']) ? "" :  $_SESSION['err1'] ?></span>
+        <span class="error"><?php echo empty($_SESSION['err1']) ? "" :  $_SESSION['err1'] ?></span>
 
         <label for="password">Password:</label>
         <input type="password" name="password" id="password" value="<?php echo empty($_SESSION['password']) ? "" : $_SESSION['password']; ?>">
-        <span class="error" id="passwordError"><?php echo empty($_SESSION['err2']) ? "" :  $_SESSION['err2'] ?></span>
+        <span class="error"><?php echo empty($_SESSION['err2']) ? "" :  $_SESSION['err2'] ?></span>
 
         <div style="display: flex; justify-content: space-between; align-items: center;">
             <label for="remember_me">
@@ -21,8 +21,8 @@
 
         <button type="submit">Login</button>
 
-        <?php if (isset($error)): ?>
-            <p class="error"><?php echo $error; ?></p>
+        <?php if (!empty($_SESSION['err3'])): ?>
+            <p class="error"><?php echo $_SESSION['err3']; ?></p>
         <?php endif; ?>
     </form>
 </div>
