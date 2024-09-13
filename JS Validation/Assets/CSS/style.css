@@ -1,0 +1,388 @@
+body, h1, ul {
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #35495E;
+    color: #FFFFFF;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #F5A623;
+    font-weight: bold;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #E74C3C;
+}
+
+.nav-links .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-links .dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-links .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.nav-links .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.nav-links .dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.nav-links .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.nav-links .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+footer {
+    background-color: #35495E;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px;
+    font-size: 1rem;
+    margin-top: 20px;
+}
+
+.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F9F9F9;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.login-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #E0E0E0;
+    border-radius: 3px;
+}
+
+.login-form .error {
+    color: #E74C3C;
+    font-size: 0.9rem;
+}
+
+.login-form button {
+    background-color: #35495E;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: #2C3E50;
+}
+
+.registration-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F9F9F9;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.registration-form h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.registration-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.registration-form input[type="text"],
+.registration-form input[type="email"],
+.registration-form input[type="password"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #E0E0E0;
+    border-radius: 3px;
+}
+
+.registration-form .error {
+    color: #E74C3C;
+    font-size: 0.9rem;
+}
+
+.registration-form button {
+    background-color: #35495E;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.registration-form button:hover {
+    background-color: #2C3E50;
+}
+
+.ForgotPassword-Form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F9F9F9;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ForgotPassword-Form h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.ForgotPassword-Form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.ForgotPassword-Form input[type="email"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #E0E0E0;
+    border-radius: 3px;
+}
+
+.ForgotPassword-Form .error {
+    color: #E74C3C;
+    font-size: 0.9rem;
+}
+
+.ForgotPassword-Form button {
+    background-color: #35495E;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.ForgotPassword-Form button:hover {
+    background-color: #2C3E50;
+}
+
+.ChangePassword-Form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F9F9F9;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ChangePassword-Form h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.ChangePassword-Form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.ChangePassword-Form input[type="email"], input[type="password"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #E0E0E0;
+    border-radius: 3px;
+}
+
+.ChangePassword-Form .error {
+    color: #E74C3C;
+    font-size: 0.9rem;
+}
+
+.ChangePassword-Form button {
+    background-color: #35495E;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.ChangePassword-Form button:hover {
+    background-color: #2C3E50;
+}
+
+.UploadFiles-Form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F9F9F9;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.UploadFiles-Form h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.UploadFiles-Form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.UploadFiles-Form input[type="file"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #E0E0E0;
+    border-radius: 3px;
+}
+
+.UploadFiles-Form button {
+    background-color: #35495E;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.UploadFiles-Form button:hover {
+    background-color: #2C3E50;
+}
+
+.alert {
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-info {
+    text-align: center;
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+.alert-danger {
+    text-align: center;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+.alert-success {
+    text-align: center;
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links.active {
+        display: block;
+    }
+
+    .nav-links.active a {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
+.image-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-table table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.image-table th, .image-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.image-table img {
+    max-width: 100%;
+    max-height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
