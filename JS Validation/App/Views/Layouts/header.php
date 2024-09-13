@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Store</title>
     <link rel="stylesheet" type="text/css" href="../../../Assets/CSS/style.css">
+    <script src="../../../Assets/JS/script.js"></script>
 </head>
 <body>
 <header>
