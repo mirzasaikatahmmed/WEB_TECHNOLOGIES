@@ -48,11 +48,11 @@ function isEmailUnique($email) {
     return $is_unique;
 }
 
-function addUser($name, $student_id, $email, $password) {
+function addUser($name, $student_id, $gender, $email, $password) {
     $conn = getConnection();
-    $sql = "INSERT INTO users (name, student_id, email, password, created_at, updated_at, status) VALUES (?, ?, ?, ?, NOW(), NOW(), 2)";
+    $sql = "INSERT INTO users (name, student_id, gender, email, password, created_at, updated_at, status) VALUES (?, ?, ?, ?, ?, NOW(), NOW(), 2)";
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "ssss", $name, $student_id, $email, $password);
+    mysqli_stmt_bind_param($stmt, "sssss", $name, $student_id, $gender, $email, $password);
     mysqli_stmt_execute($stmt);
     $insert_id = mysqli_insert_id($conn);
     mysqli_stmt_close($stmt);
@@ -100,4 +100,14 @@ function getFilesByID($ID) {
     return $files;
 }
 
-
+function updateUserProfile($id, $name, $student_id, $gender) {
+    $conn = getConnection();
+    $sql = "UPDATE users SET name = ?, student_id = ?, gender = ?, updated_at = NOW() WHERE id = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "sssi", $name, $student_id, $gender, $id);
+    mysqli_stmt_execute($stmt);
+    $affected_rows = mysqli_stmt_affected_rows($stmt);
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
+    return $affected_rows === 1;
+}

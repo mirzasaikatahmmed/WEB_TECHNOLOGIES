@@ -18,11 +18,13 @@
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $name = sanitize($_POST['name']);
         $student_id = sanitize($_POST['student_id']);
+        $gender = $_POST['gender'];
         $email = sanitize($_POST['email']);
         $password = sanitize($_POST['password']);
 
         $_SESSION['name'] = "";
         $_SESSION['student_id'] = "";
+        $_SESSION['gender'] = "";
         $_SESSION['email'] = "";
         $_SESSION['password'] = "";
         $_SESSION['nameErr'] = "";
@@ -31,7 +33,7 @@
         $_SESSION['passwordErr'] = "";
         $_SESSION['error'] = "";
 
-        $validation_errors = validateRegistration($name, $student_id, $email, $password);
+        $validation_errors = validateRegistration($name, $student_id, $gender, $email, $password);
 
         if(!empty($validation_errors)) {
             $_SESSION['nameErr'] = $validation_errors['name'] ?? "";
@@ -51,7 +53,7 @@
             } 
 
             else {
-                $user = addUser($name, $student_id, $email, $password);
+                $user = addUser($name, $student_id, $gender, $email, $password);
                 $_SESSION['error'] = "Registration successful!";
                 header("Location: ../Views/Authentication/Login.php");
                 exit();
@@ -63,7 +65,7 @@
         header("Location: ../Views/Authentication/Registration.php");
     }
 
-    function validateRegistration($name, $student_id, $email, $password) {
+    function validateRegistration($name, $student_id, $gender, $email, $password) {
         $errors = [];
 
         if (empty($name)) {
@@ -74,6 +76,10 @@
             $errors['student_id'] = "Student ID is required.";
         } elseif (!preg_match('/^(00|01|02|03|04|05|06|07|08|09|10|11|12|14|15|16|17|18|19|20|21|22|23|24)-\d{5}-[1-3]$/', $student_id)) {
             $errors['student_id'] = "Invalid student ID format. It should be in the format xx-xxxxx-x.";
+        }
+
+        if (empty($gender)) {
+            $errors['gender'] = "Gender is required.";
         }
 
         if (empty($email)) {

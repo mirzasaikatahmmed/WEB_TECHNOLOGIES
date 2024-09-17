@@ -24,7 +24,8 @@
             <div class="dropdown">
                 <button class="dropbtn">Account</button>
                 <div class="dropdown-content">
-                    <a href="../Authentication/ChangePassword.php">Change Password</a>
+                    <a href="../Users/Profile.php">Profile</a>
+                    <a href="../Users/ChangePassword.php">Change Password</a>
                     <a href="../../Controllers/LogoutController.php">Logout</a>
                 </div>
             </div>

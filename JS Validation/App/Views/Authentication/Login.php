@@ -2,7 +2,7 @@
 
 <div class="login-form">
     <h2>Login</h2>
-    <form method="POST" action="../../Controllers/LoginController.php" onsubmit="return isValid(this);" novalidate>
+    <form id="login-form" method="POST" action="../../Controllers/LoginController.php" onsubmit="return isValid(this);" novalidate>
         <label for="email">Email:</label>
         <input type="email" name="email" id="email" value="<?php echo empty($_SESSION['email']) ? "" : $_SESSION['email']; ?>">
         <span class="error"><?php echo empty($_SESSION['err1']) ? "" :  $_SESSION['err1'] ?></span>

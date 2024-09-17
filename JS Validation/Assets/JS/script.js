@@ -83,3 +83,4 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         event.preventDefault();
     }
 });
+
