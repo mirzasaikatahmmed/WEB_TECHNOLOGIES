@@ -85,6 +85,7 @@ function getIDByEmail($conn, $email) {
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
+    
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         return $row['id'];
@@ -109,6 +110,19 @@ function insertFileData($conn, $fileNameNew, $userID) {
         }
     } else {
         return false;
+    }
+}
+
+function getUserInfoByID($conn, $userID) {
+    $stmt = $conn->prepare("SELECT name, student_id FROM users WHERE id = ?");
+    $stmt->bind_param("i", $userID);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        return $row;
+    } else {
+        return null;
     }
 }
 ?>

@@ -363,6 +363,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    //Upload Form Logic
     const uploadForm = document.getElementById('uploadForm');
     if (uploadForm) {
         const fileInput = document.getElementById('file');
@@ -375,7 +376,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const file = fileInput.files[0];
 
             const allowedExtensions = ['jpg', 'jpeg', 'png'];
-            const maxSize = 10 * 1024 * 1024; // 10 MB
+            const maxSize = 10 * 1024 * 1024;
 
             if (!file) {
                 e.preventDefault();

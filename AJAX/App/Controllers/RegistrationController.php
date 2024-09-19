@@ -22,9 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-    $result = registerUser($full_name, $student_id, $gender, $email, $hashed_password);
+    $result = registerUser($full_name, $student_id, $gender, $email, $password);
 
     if ($result) {
         $_SESSION['success'] = 'Registration successful';

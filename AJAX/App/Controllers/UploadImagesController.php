@@ -2,7 +2,18 @@
 session_start();
 require_once '../Models/UserModel.php';
 $conn = getConnection();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../Views/Images/UploadImages.php');
+    exit();
+}
+
 $email = $_SESSION['email'];
+$userID = $_SESSION['user_id'];
+if ($userID === null) {
+    $_SESSION['message'] = 'Invalid userID or email not found in database.';
+    header('Location: ../Views/Images/UploadImages.php');
+    exit();
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['file']) && $_FILES['file']['error'] !== UPLOAD_ERR_NO_FILE) {
@@ -21,21 +32,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (in_array($fileActualExt, $allowed)) {
             if ($fileError === 0) {
                 if ($fileSize < 10000000) {
-                    $uniqueID = uniqid('', true);
-                    $fileNameNew = "{$uniqueID}.{$fileActualExt}";
-                    $fileDestination = "../../../Public/Uploads/Images/{$fileNameNew}";
+                    $userInfo = getUserInfoByID($conn, $userID);
+                    if ($userInfo === null) {
+                        $_SESSION['message'] = 'User information not found.';
+                        header('Location: ../Views/Images/UploadImages.php');
+                        exit();
+                    }
+
+                    $studentName = $userInfo['name'];
+                    $name = str_replace(' ', '_', $studentName);
+                    $studentID = $userInfo['student_id'];
+                    $serial = 1;
+                    $fileNameNew = "{$name}[{$studentID}][{$serial}].{$fileActualExt}";
+                    while (file_exists("../../Public/Uploads/{$fileNameNew}")) {
+                        $serial++;
+                        $fileNameNew = "{$name}[{$studentID}][{$serial}].{$fileActualExt}";
+                    }
+
+                    $fileDestination = "../../Public/Uploads/{$fileNameNew}";
 
                     if (move_uploaded_file($fileTmpName, $fileDestination)) {
-                        $userID = getIDByEmail($conn, $email);
-
-                        if ($userID !== null) {
-                            if (insertFileData($conn, $fileNameNew, $userID)) {
-                                $_SESSION['message'] = 'File uploaded successfully';
-                            } else {
-                                $_SESSION['message'] = 'Failed to insert file data';
-                            }
+                        if (insertFileData($conn, $fileNameNew, $userID)) {
+                            $_SESSION['message'] = 'File uploaded successfully';
                         } else {
-                            $_SESSION['message'] = 'Invalid userID';
+                            $_SESSION['message'] = 'Failed to insert file data';
                         }
 
                         header('Location: ../Views/Images/UploadImages.php');
