@@ -1,0 +1,645 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.error-message-global {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #ffe6e6;
+    border: 1px solid red;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.success-message-global {
+    color: green;
+    font-size: 14px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #e6ffe6;
+    border: 1px solid green;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Login Styles */
+.login-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.login-container:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.login-container h2 {
+    margin-bottom: 25px;
+    color: #444;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.login-container .input-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.login-container .input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.login-container .input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.login-container .input-group input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: #0056b3;
+}
+
+.login-container .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.login-container .register-link {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.login-container .register-link p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.login-container .register-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-container .register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Registration Styles */
+.registration-container {
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.registration-container:hover {
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.registration-container h2 {
+    margin-bottom: 25px;
+    color: #444;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.registration-container .input-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.registration-container .input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.registration-container .input-group input,
+.registration-container .input-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.registration-container .input-group input:focus,
+.registration-container .input-group select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.registration-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.registration-container button:hover {
+    background-color: #0056b3;
+}
+
+.registration-container .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.registration-container .invalid {
+    border: 2px solid red;
+}
+
+.registration-container .login-link {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.registration-container .login-link p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.registration-container .login-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.registration-container .login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Profile Styles */
+.profile-container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 25px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.profile-container:hover {
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.profile-container h2 {
+    margin-bottom: 30px;
+    color: #444;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.profile-container .profile-info {
+    margin-bottom: 25px;
+}
+
+.profile-container .info-group {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.profile-container .info-group label {
+    font-weight: bold;
+    color: #555;
+}
+
+.profile-container .info-group span {
+    font-size: 16px;
+    color: #777;
+}
+
+.profile-container .update-profile {
+    text-align: center;
+}
+
+.profile-container .update-profile .btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profile-container .update-profile .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Update Profile container styling */
+.update-profile-container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.update-profile-container:hover {
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.update-profile-container h2 {
+    margin-bottom: 25px;
+    color: #444;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.update-profile-container .input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.update-profile-container .input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.update-profile-container .input-group input[type="text"],
+.update-profile-container .input-group input[type="email"],
+.update-profile-container .input-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.update-profile-container .input-group input[readonly] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+.update-profile-container .input-group input[type="text"].invalid,
+.update-profile-container .input-group input[type="email"].invalid,
+.update-profile-container .input-group select.invalid {
+    border-color: #dc3545;
+}
+
+.update-profile-container .input-group .error-message {
+    color: #dc3545;
+    font-size: 0.875em;
+    margin-top: 5px;
+}
+
+.update-profile-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.update-profile-container button:hover {
+    background-color: #0056b3;
+}
+
+.update-profile-container .status-message {
+    margin-top: 20px;
+    color: #28a745;
+    font-size: 1em;
+    text-align: center;
+}
+
+/* Change Password Container */
+.change-password-container {
+    width: 100%;
+    max-width: 450px;
+    margin: 60px auto;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.change-password-container:hover {
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.change-password-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #444;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.change-password-container .input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.change-password-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.change-password-container input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.change-password-container input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.change-password-container .error-message {
+    color: #dc3545;
+    font-size: 0.875em;
+    margin-top: 5px;
+}
+
+.change-password-container .status-message {
+    margin-top: 20px;
+    color: #28a745;
+    font-size: 1em;
+    text-align: center;
+}
+
+.change-password-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.change-password-container button:hover {
+    background-color: #0056b3;
+}
+
+.change-password-container input.invalid {
+    border-color: #dc3545;
+}
+
+/* Footer styles */
+footer {
+    background-color: #222;
+    color: #ccc;
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #444;
+}
+
+footer p {
+    margin: 0;
+    font-size: 13px;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    color: #ccc;
+    padding: 15px 30px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    border-bottom: 1px solid #444;
+    z-index: 1000;
+}
+
+header .logo h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+header .nav-links {
+    display: flex;
+    align-items: center;
+}
+
+header .nav-links a {
+    color: #ccc;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+header .nav-links a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+header .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+header .dropbtn {
+    background-color: #222;
+    color: #ccc;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+header .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+header .dropdown-content a {
+    color: #ccc;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+header .dropdown-content a:hover {
+    background-color: #444;
+}
+
+header .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+header .dropdown:hover .dropbtn {
+    background-color: #444;
+}
+
+
+/* UploadFiles-Form */
+.UploadFiles-Form {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.UploadFiles-Form:hover {
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.UploadFiles-Form h2 {
+    margin-bottom: 25px;
+    color: #444;
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.UploadFiles-Form .form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.UploadFiles-Form .form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+.UploadFiles-Form .form-group .form-control-file {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.UploadFiles-Form .form-group .form-control-file:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.UploadFiles-Form .btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.UploadFiles-Form .btn:hover {
+    background-color: #0056b3;
+}
+
+.UploadFiles-Form .alert {
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.UploadFiles-Form .alert.alert-danger {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #dc3545;
+}
+
+.UploadFiles-Form .alert.alert-info {
+    color: #007bff;
+    background-color: #e2e3e5;
+    border: 1px solid #007bff;
+}
