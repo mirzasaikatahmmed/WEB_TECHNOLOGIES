@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once '../Models/UserModel.php';
-require_once '../../Config/Database.php';
 
 if (!isset($_SESSION['user_id'])) {
     echo 'User not logged in.';
