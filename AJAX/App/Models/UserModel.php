@@ -80,8 +80,7 @@ function updateUserPassword($userId, $newPassword) {
     return $stmt->execute();
 }
 
-function getIDByEmail($email) {
-    $conn = getConnection();
+function getIDByEmail($conn, $email) {
     $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -94,8 +93,7 @@ function getIDByEmail($email) {
     }
 }
 
-function insertFileData($fileNameNew, $userID) {
-    $conn = getConnection();
+function insertFileData($conn, $fileNameNew, $userID) {
     $stmtCheck = $conn->prepare("SELECT id FROM users WHERE id = ?");
     $stmtCheck->bind_param("i", $userID);
     $stmtCheck->execute();

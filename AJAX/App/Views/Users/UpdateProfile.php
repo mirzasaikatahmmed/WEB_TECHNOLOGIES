@@ -15,13 +15,13 @@ $user = getUserById($userId);
         <form id="updateProfileForm">
             <div class="input-group">
                 <label for="full_name">Full Name</label>
-                <input type="text" id="full_name" name="full_name" value="<?php echo htmlspecialchars($user['name']); ?>" required>
+                <input type="text" id="full_name" name="full_name" value="<?php echo htmlspecialchars($user['name']); ?>">
                 <div id="name-error" class="error-message"></div>
             </div>
 
             <div class="input-group">
                 <label for="student_id">Student ID</label>
-                <input type="text" id="student_id" name="student_id" value="<?php echo htmlspecialchars($user['student_id']); ?>" required>
+                <input type="text" id="student_id" name="student_id" value="<?php echo htmlspecialchars($user['student_id']); ?>">
                 <div id="student_id-error" class="error-message"></div>
             </div>
 

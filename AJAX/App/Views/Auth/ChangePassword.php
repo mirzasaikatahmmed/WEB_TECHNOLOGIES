@@ -14,19 +14,19 @@ $userId = $_SESSION['user_id'];
     <form id="changePasswordForm">
         <div class="input-group">
             <label for="old_password">Old Password</label>
-            <input type="password" id="old_password" name="old_password" placeholder="Enter your old password" required>
+            <input type="password" id="old_password" name="old_password" placeholder="Enter your old password" value="<?php echo empty($_SESSION['old_password']) ? "" : $_SESSION['old_password']; ?>">
             <div id="old-password-error" class="error-message"></div>
         </div>
 
         <div class="input-group">
             <label for="new_password">New Password</label>
-            <input type="password" id="new_password" name="new_password" placeholder="Enter your new password" required>
+            <input type="password" id="new_password" name="new_password" placeholder="Enter your new password" value="<?php echo empty($_SESSION['new_password']) ? "" : $_SESSION['new_password']; ?>">
             <div id="new-password-error" class="error-message"></div>
         </div>
 
         <div class="input-group">
             <label for="confirm_new_password">Confirm New Password</label>
-            <input type="password" id="confirm_new_password" name="confirm_new_password" placeholder="Confirm your new password" required>
+            <input type="password" id="confirm_new_password" name="confirm_new_password" placeholder="Confirm your new password" value="<?php echo empty($_SESSION['confirm_new_password']) ? "" : $_SESSION['confirm_new_password']; ?>">
             <div id="confirm-new-password-error" class="error-message"></div>
         </div>
 

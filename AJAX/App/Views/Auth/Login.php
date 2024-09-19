@@ -17,21 +17,21 @@
     <form id="loginForm" action="../../Controllers/LoginController.php" method="POST">
         <h2>Login</h2>
 
-        <?php if (isset($_GET['error'])): ?>
+        <?php if (isset($_SESSION['error_message'])): ?>
             <div class="error-message-global">
-                <?php echo htmlspecialchars($_GET['error']); ?>
+                <?php echo htmlspecialchars($_SESSION['error_message']); ?>
             </div>
         <?php endif; ?>
 
         <div class="input-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <input type="email" id="email" name="email" placeholder="Enter your email" value="<?php echo empty($_SESSION['email']) ? "" : $_SESSION['email']; ?>">
             <div id="email-error-message" class="error-message"></div>
         </div>
 
         <div class="input-group">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <input type="password" id="password" name="password" placeholder="Enter your password" value="<?php echo empty($_SESSION['password']) ? "" : $_SESSION['password']; ?>">
             <div id="password-error-message" class="error-message"></div>
         </div>
 

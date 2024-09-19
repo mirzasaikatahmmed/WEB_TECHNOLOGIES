@@ -23,10 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (!empty($error_message)) {
-        header("Location: ../Views/Auth/Login.php?error=" . urlencode($error_message));
+        $_SESSION['error_message'] = $error_message;
+        header("Location: ../Views/Auth/Login.php");
         exit();
     }
 } else {
-    header("Location: ../Views/Auth/Login.php?error=" . urlencode('Please log in to continue.'));
+    $_SESSION['error_message'] = 'Please log in to continue.';
+    header("Location: ../Views/Auth/Login.php");
     exit();
 }
+?>

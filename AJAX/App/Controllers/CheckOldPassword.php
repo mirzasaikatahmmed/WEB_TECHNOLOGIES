@@ -8,7 +8,6 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $userId = $_SESSION['user_id'];
-
 $oldPassword = $_POST['old_password'] ?? '';
 
 if (empty($oldPassword)) {

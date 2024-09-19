@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once '../Models/UserModel.php';
+$conn = getConnection();
 $email = $_SESSION['email'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -22,13 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($fileSize < 10000000) {
                     $uniqueID = uniqid('', true);
                     $fileNameNew = "{$uniqueID}.{$fileActualExt}";
-                    $fileDestination = "../../Public/Uploads/{$fileNameNew}";
+                    $fileDestination = "../../../Public/Uploads/Images/{$fileNameNew}";
 
                     if (move_uploaded_file($fileTmpName, $fileDestination)) {
-                        $userID = getIDByEmail($email);
+                        $userID = getIDByEmail($conn, $email);
 
                         if ($userID !== null) {
-                            if (insertFileData($fileNameNew, $userID)) {
+                            if (insertFileData($conn, $fileNameNew, $userID)) {
                                 $_SESSION['message'] = 'File uploaded successfully';
                             } else {
                                 $_SESSION['message'] = 'Failed to insert file data';
@@ -69,5 +70,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Location: ../Views/Images/UploadImages.php');
     exit();
 }
-
 ?>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once '../Models/UserModel.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -10,12 +11,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $confirm_password = $_POST['confirm_password'];
 
     if ($password !== $confirm_password) {
-        header("Location: ../Views/Auth/Registration.php?error=Passwords do not match");
+        $_SESSION['error'] = 'Passwords do not match';
+        header("Location: ../Views/Auth/Registration.php");
         exit();
     }
 
     if (checkEmailExists($email)) {
-        header("Location: ../Views/Auth/Registration.php?error=Email already exists");
+        $_SESSION['error'] = 'Email already exists';
+        header("Location: ../Views/Auth/Registration.php");
         exit();
     }
 
@@ -24,8 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = registerUser($full_name, $student_id, $gender, $email, $hashed_password);
 
     if ($result) {
-        header("Location: ../Views/Auth/Registration.php?success=Registration successful");
+        $_SESSION['success'] = 'Registration successful';
     } else {
-        header("Location: ../Views/Auth/Registration.php?error=Registration failed");
+        $_SESSION['error'] = 'Registration failed';
     }
+
+    header("Location: ../Views/Auth/Registration.php");
+    exit();
 }
