@@ -41,7 +41,6 @@
         <p>Don't have an account? <a href="./Registration.php">Register here</a></p>
     </div>
 </div>
-
 </body>
 </html>
 
