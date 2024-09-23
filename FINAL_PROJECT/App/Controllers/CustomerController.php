@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $targetDir = '../../Public/Uploads/Users/';
         $uniqueFileName = uniqid() . '_' . basename($profileImage['name']);
-        $targetFile = $targetDir . $uniqueFileName;
+        $targetFile = "{$targetDir}{$uniqueFileName}";
         $uploadOk = 1;
 
         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
@@ -64,5 +64,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
-
-?>

@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="../../../Public/Assets/CSS/Style.css">
+    <script src="../../../Public/Assets/JS/Script.js" defer></script>
 </head>
 <body>
     <div class="login-container">
@@ -22,14 +23,16 @@
             </div>
             <?php endif; ?>
 
-            <form action="../../Controllers/AuthController.php" method="POST">
+            <form id="loginForm" action="../../Controllers/AuthController.php" method="POST">
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                    <div id="email-error-message" class="error-message"></div>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <input type="password" id="password" name="password" placeholder="Enter your password">
+                    <div id="password-error-message" class="error-message"></div>
                 </div>
                 <div class="form-options">
                     <div class="remember-me">

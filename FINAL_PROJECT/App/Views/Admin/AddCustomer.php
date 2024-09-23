@@ -26,7 +26,7 @@ include_once '../Layouts/Header.php';
                 <input type="file" id="profile_image" name="profile_image" accept="image/*">
             </div>
             <div class="form-group">
-                <button type="submit" class="btn-submit">Add Customer</button>
+                <button type="submit" class="btn-submit" name="addCustomer">Add Customer</button>
             </div>
         </form>
     </div>

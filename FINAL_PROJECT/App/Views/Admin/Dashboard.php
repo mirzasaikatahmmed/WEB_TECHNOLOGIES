@@ -23,7 +23,7 @@
         <div class="card">
             <h3>Merchant Management</h3>
             <p>Manage merchant accounts and activities.</p>
-            <a class="btn" href="../Admin/Merchant.php">Manage Merchants</a>
+            <a class="btn" href="../Admin/Merchants.php">Manage Merchants</a>
         </div>
 
         <div class="card">

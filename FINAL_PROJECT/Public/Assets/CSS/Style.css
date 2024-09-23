@@ -775,3 +775,230 @@ body {
 .form-container .btn-submit:hover {
     background-color: #0056b3;
 }
+
+/* Product Management Style */
+.product-container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-container h1, h2 {
+    color: #333;
+}
+
+.product-container form {
+    margin-bottom: 20px;
+}
+
+.product-container label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.product-container input[type="text"],
+.product-container input[type="number"],
+.product-container input[type="file"],
+.product-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.product-container input[type="submit"] {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.product-container input[type="submit"]:hover {
+    background-color: #4cae4c;
+}
+
+.product-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.product-container table, th, td {
+    border: 1px solid #ddd;
+}
+
+.product-container th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+.product-container tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.product-container tr:hover {
+    background-color: #ddd;
+}
+
+/* Merchant Style */
+.merchant-management {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.merchant-management .add-merchant-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.merchant-management .add-merchant-btn:hover {
+    background-color: #218838;
+}
+
+.merchant-management .table-container {
+    overflow-x: auto;
+}
+
+.merchant-management .merchant-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.merchant-management .merchant-table th,
+.merchant-management .merchant-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+.merchant-table th {
+    background-color: #007bff;
+    color: white;
+    text-transform: uppercase;
+}
+
+.merchant-management .merchant-table tr:hover {
+    background-color: #e9ecef;
+}
+
+.merchant-management .btn {
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.merchant-management .action-btn {
+    margin-right: 5px;
+}
+
+.merchant-management .edit-btn {
+    background-color: #007bff;
+}
+
+.merchant-management .edit-btn:hover {
+    background-color: #0056b3;
+}
+
+.merchant-management .delete-btn {
+    background-color: #dc3545;
+}
+
+.merchant-management .delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Add Merchant */
+.merchant-container {
+    max-width: 800px;
+    margin: auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.merchant-container:hover {
+    transform: translateY(-2px);
+}
+
+.merchant-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.merchant-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.merchant-table td {
+    padding: 15px;
+    vertical-align: top;
+}
+
+.merchant-table .form-group {
+    margin: 0;
+}
+
+.merchant-table .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.merchant-table .form-group input[type="text"],
+.merchant-table .form-group input[type="email"],
+.merchant-table .form-group input[type="password"],
+.merchant-table .form-group input[type="tel"],
+.merchant-table .form-group input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s;
+}
+
+.merchant-table .form-group input[type="text"]:focus,
+.merchant-table .form-group input[type="email"]:focus,
+.merchant-table .form-group input[type="password"]:focus,
+.merchant-table .form-group input[type="tel"]:focus {
+    border-color: #007bff;
+}
+
+.merchant-container .btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.merchant-container .btn-submit:hover {
+    background-color: #0056b3;
+}

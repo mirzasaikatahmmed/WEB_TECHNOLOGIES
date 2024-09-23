@@ -1,39 +1,41 @@
 <?php
 include '../Layouts/Header.php';
-require_once '../../Models/User.php';
-$customers = getUsersByRole('merchant');
+require_once '../../Models/Merchant.php';
+$merchants = getMerchants();
 ?>
 
-<main class="customer-management">
+<main class="merchant-management">
     <div class="table-container">
-        <a class="btn add-customer-btn" href="AddCustomer.php">+ Add Customer</a>
-        <table class="customer-table">
+        <a class="btn add-merchant-btn" href="AddMerchant.php">+ Add Merchant</a>
+        <table class="merchant-table">
             <thead>
                 <tr>
-                    <th>User ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Created At</th>
+                    <th>Merchant ID</th>
+                    <th>Business Name</th>
+                    <th>Business Address</th>
+                    <th>Contact Number</th>
+                    <th>Business License</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <?php if (count($customers) > 0): ?>
-                    <?php foreach ($customers as $customer): ?>
+                <?php if (count($merchants) > 0): ?>
+                    <?php foreach ($merchants as $merchant): ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($customer['user_id']); ?></td>
-                            <td><?php echo htmlspecialchars($customer['name']); ?></td>
-                            <td><?php echo htmlspecialchars($customer['email']); ?></td>
-                            <td><?php echo htmlspecialchars($customer['created_at']); ?></td>
+                            <td><?php echo htmlspecialchars($merchant['merchant_id']); ?></td>
+                            <td><?php echo htmlspecialchars($merchant['business_name']); ?></td>
+                            <td><?php echo htmlspecialchars($merchant['business_address']); ?></td>
+                            <td><?php echo htmlspecialchars($merchant['contact_number']); ?></td>
+                            <td><?php echo htmlspecialchars($merchant['business_license']); ?></td>
                             <td>
-                                <a class="btn action-btn edit-btn" href="EditCustomer.php?id=<?php echo $customer['user_id']; ?>">Edit</a>
-                                <a class="btn action-btn delete-btn" href="DeleteCustomer.php?id=<?php echo $customer['user_id']; ?>">Delete</a>
+                                <a class="btn action-btn edit-btn" href="EditMerchant.php?id=<?php echo $merchant['merchant_id']; ?>">Edit</a>
+                                <a class="btn action-btn delete-btn" href="DeleteMerchant.php?id=<?php echo $merchant['merchant_id']; ?>">Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
                     <tr>
-                        <td colspan="5">No customers found.</td>
+                        <td colspan="6">No merchants found.</td>
                     </tr>
                 <?php endif; ?>
             </tbody>
