@@ -1,0 +1,76 @@
+Our Project Name is "ShopConnect"
+
+App
+├── Controllers
+│   ├── AdminController.php
+│   ├── AuthController.php
+│   ├── MerchantController.php
+│   ├── CustomerController.php
+│   ├── ProductController.php
+│   ├── OrderController.php
+│   ├── ProfileController.php
+│   └── BaseController.php  # Handles shared logic across controllers
+├── Models
+│   ├── User.php  # Handles Admin, Merchant, and Customer models
+│   ├── Product.php
+│   ├── Order.php
+│   ├── Merchant.php
+│   ├── Customer.php
+│   ├── Admin.php
+│   └── Database.php  # Database connection and queries
+├── Views
+│   ├── layouts
+│   │   ├── header.php
+│   │   ├── footer.php
+│   │   └── layouts.php
+│   ├── Admin
+│   │   ├── Index.php
+│   │   ├── AddProduct.php
+│   │   ├── Products.php
+│   │   ├── Merchants.php
+│   │   ├── MerchantDetails.php
+│   │   ├── Users.php
+│   │   ├── UserDetails.php
+│   │   ├── Orders.php
+│   │   └── Dashboard.php  # Admin dashboard overview
+│   ├── Auth
+│   │   ├── Login.php
+│   │   ├── Register.php
+│   │   ├── ChangePassword.php
+│   │   ├── ForgotPassword.php  # Password reset functionality
+│   │   └── ResetPassword.php   # Password reset link handler
+│   ├── Common
+│   │   ├── Profile.php
+│   │   └── Dashboard.php  # Common dashboard for general information
+│   ├── Merchants
+│   │   ├── Index.php
+│   │   ├── AddProduct.php
+│   │   ├── Products.php
+│   │   ├── ProductDetails.php
+│   │   ├── Orders.php
+│   │   └── MerchantDashboard.php  # Merchant-specific dashboard
+│   ├── Customers
+│   │   ├── Index.php  # Customer homepage for product browsing
+│   │   ├── ProductDetails.php  # View detailed product info
+│   │   ├── Cart.php  # Cart management page
+│   │   ├── Checkout.php  # Checkout page
+│   │   ├── Orders.php  # View customer orders
+│   │   ├── OrderDetails.php  # Detailed order view for customers
+│   │   └── CustomerDashboard.php  # Customer-specific dashboard
+├── Config
+│   ├── config.php  # Contains database and app-level configuration
+│   └── routes.php  # URL routing logic for the MVC framework
+└── Public
+    ├── Assets
+    │   ├── CSS
+    │   │   ├── Style.css
+    │   │   └── Admin.css  # Separate styles for Admin section
+    │   ├── JS
+    │   │   ├── Script.js
+    │   │   └── Admin.js  # JavaScript for Admin features
+    ├── Uploads
+    │   ├── Common
+    │   ├── Products
+    │   ├── Users
+    │   └── Merchants  # Separate uploads folder for merchants' assets
+    └── Index.php  # Front-facing index file
