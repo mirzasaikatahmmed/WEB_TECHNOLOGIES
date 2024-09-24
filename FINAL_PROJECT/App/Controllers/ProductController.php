@@ -30,5 +30,15 @@ if (isset($_GET['delete'])) {
     }
 }
 
-$products = getProducts();
+header('Content-Type: application/json');
+
+if (isset($_GET['action']) && $_GET['action'] === 'fetch_products') {
+    $products = getProducts();
+    if ($products) {
+        echo json_encode(['success' => true, 'products' => $products]);
+    } else {
+        echo json_encode(['success' => false, 'error' => 'No products found.']);
+    }
+    exit;
+}
 ?>

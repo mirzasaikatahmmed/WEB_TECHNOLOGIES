@@ -20,6 +20,14 @@ function getMerchants() {
 
 function createMerchant($name, $email, $password, $role, $profileImage, $businessName, $businessAddress, $contactNumber, $businessLicense) {
     $conn = getConnection();
+    $emailCheckSql = "SELECT * FROM users WHERE email = '$email'";
+    $emailCheckResult = mysqli_query($conn, $emailCheckSql);
+    
+    if (mysqli_num_rows($emailCheckResult) > 0) {
+        mysqli_close($conn);
+        return "Email already exists.";
+    }
+    
     $sql = "INSERT INTO users (name, email, password, role, profile_image) VALUES ('$name', '$email', '$password', '$role', '$profileImage')";
     
     if (mysqli_query($conn, $sql)) {
