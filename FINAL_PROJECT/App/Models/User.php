@@ -27,4 +27,25 @@ function getUsersByRole($role) {
     return $result->fetch_all(MYSQLI_ASSOC);
 }
 
+function createCustomer($insertedUserId, $shippingAddress, $contactNumber) {
+    $conn = getConnection();
+    $stmt = $conn->prepare("INSERT INTO customers (user_id, shipping_address, contact_number) VALUES (?, ?, ?)");
+    $stmt->bind_param("iss", $insertedUserId, $shippingAddress, $contactNumber);
+    $stmt->execute();
+    return $stmt->affected_rows;
+}
+
+function getUserDataById($user_id) {
+    $conn = getConnection();
+    $query = "SELECT * FROM users WHERE user_id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+    $stmt->close();
+    $conn->close();
+    return $user;
+}
+
 ?>

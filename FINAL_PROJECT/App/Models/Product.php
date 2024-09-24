@@ -6,8 +6,10 @@ function getProducts() {
     $result = mysqli_query($conn, $sql);
     $products = [];
     
-    while ($row = mysqli_fetch_assoc($result)) {
-        $products[] = $row;
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $products[] = $row;
+        }
     }
     
     mysqli_close($conn);

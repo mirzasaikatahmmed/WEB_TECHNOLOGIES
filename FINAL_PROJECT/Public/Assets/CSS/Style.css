@@ -444,24 +444,43 @@ body {
     align-items: center;
 }
 
-.header .user-info .user-name {
+.header .user-info span {
     margin-right: 15px;
     font-size: 16px;
     color: white;
 }
 
-.header .user-info .logout-btn {
-    background-color: #0056b3;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.header .user-info .dropdown {
+    position: relative;
+    display: inline-block;
 }
 
-.header .user-info .logout-btn:hover {
-    background-color: #003f7f;
+.header .user-info .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.header .user-info .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.header .user-info .dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.header .user-info .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.header .user-info .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
 }
 
 /* Footer Style */
@@ -634,21 +653,23 @@ body {
 .customer-management {
     padding: 20px;
     max-width: 1200px;
-    margin: auto;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    background-color: #f4f6f9;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .customer-management .add-customer-btn {
     background-color: #28a745;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 6px;
     text-decoration: none;
     margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
     display: inline-block;
-    transition: background-color 0.3s;
 }
 
 .customer-management .add-customer-btn:hover {
@@ -657,40 +678,48 @@ body {
 
 .customer-management .table-container {
     overflow-x: auto;
+    margin-top: 20px;
 }
 
 .customer-management .customer-table {
     width: 100%;
     border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 6px;
+    overflow: hidden;
 }
 
 .customer-management .customer-table th,
 .customer-management .customer-table td {
-    padding: 12px;
+    padding: 15px;
     text-align: left;
-    border: 1px solid #ccc;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 15px;
 }
 
 .customer-table th {
     background-color: #007bff;
-    color: white;
+    color: #fff;
     text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
 }
 
 .customer-management .customer-table tr:hover {
-    background-color: #e9ecef;
+    background-color: #f1f3f5;
 }
 
 .customer-management .btn {
-    padding: 8px 15px;
+    padding: 10px 18px;
     border-radius: 5px;
     text-decoration: none;
-    color: white;
-    transition: background-color 0.3s;
+    font-size: 14px;
+    color: #fff;
+    transition: background-color 0.3s ease;
 }
 
 .customer-management .action-btn {
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 .customer-management .edit-btn {
@@ -717,11 +746,12 @@ body {
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .form-container:hover {
     transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .form-container h1 {
@@ -751,13 +781,14 @@ body {
     border-radius: 4px;
     font-size: 16px;
     color: #333;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .form-container .form-group input[type="text"]:focus,
 .form-container .form-group input[type="email"]:focus,
 .form-container .form-group input[type="password"]:focus {
     border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 .form-container .btn-submit {
@@ -769,12 +800,14 @@ body {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .form-container .btn-submit:hover {
     background-color: #0056b3;
+    transform: scale(1.02);
 }
+
 
 /* Product Management Style */
 .product-container {
@@ -1002,3 +1035,199 @@ body {
 .merchant-container .btn-submit:hover {
     background-color: #0056b3;
 }
+
+/* Order Management Style */
+/* Order Management */
+.order-management {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-management h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.order-management .table-container {
+    overflow-x: auto;
+}
+
+.order-management .order-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.order-management .order-table th,
+.order-management .order-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+.order-management .order-table th {
+    background-color: #007bff;
+    color: white;
+    text-transform: uppercase;
+}
+
+.order-management .order-table tr:hover {
+    background-color: #e9ecef;
+}
+
+.order-management .btn {
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.order-management .edit-btn {
+    background-color: #007bff;
+}
+
+.order-management .edit-btn:hover {
+    background-color: #0056b3;
+}
+
+.order-management .delete-btn {
+    background-color: #dc3545;
+    margin-left: 5px;
+}
+
+.order-management .delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Profile Style */
+.profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.profile-container .profile-header h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.profile-container .profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-container .profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.profile-container .profile-info h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.profile-container .profile-info p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.profile-container .profile-actions {
+    margin-top: 30px;
+}
+
+.profile-container .profile-actions .btn-edit,
+.profile-container .profile-actions .btn-logout {
+    padding: 12px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.profile-container .btn-edit {
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.profile-container .btn-edit:hover {
+    background-color: #0056b3;
+}
+
+.profile-container .btn-logout {
+    background-color: #dc3545;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.profile-container .btn-logout:hover {
+    background-color: #c82333;
+}
+
+/* Edit Profile */
+.edit-profile-container {
+    width: 100%;
+    max-width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.edit-profile-container h1 {
+    text-align: center;
+    color: #333;
+}
+
+.edit-profile-container .input-group {
+    margin-bottom: 15px;
+}
+
+.edit-profile-container .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.edit-profile-container .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.edit-profile-container .btn-save {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.edit-profile-container .btn-save:hover {
+    background-color: #218838;
+}
+
+
